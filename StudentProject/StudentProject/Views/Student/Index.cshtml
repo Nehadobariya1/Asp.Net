@@ -55,6 +55,21 @@
                     </tr>
                 </tbody>
             </table>
+            <div>
+                @helper Data(string[] name)
+                 {
+                    <ul>
+                        @foreach(var item in name)
+                        { 
+                            <li>@item</li>
+                        }
+                    </ul>  
+                 }
+            </div>
+            <div>
+                <strong>Country List using helper class</strong>
+                @Data(new string[] {"India", "Australia","Zimbabve","Thailand","kajakistan"})
+            </div>
         </div>
     </div>
 

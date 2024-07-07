@@ -1,6 +1,6 @@
-﻿
+﻿@model List<StudentProject.Models.student>
 @{
-    Layout = null;
+    =Layout = null;
 }
 
 <!DOCTYPE html>
@@ -35,8 +35,29 @@
         </nav>
         <div>
             <h2>
-                Contact Details Goes Hear.................
+                Student Details
             </h2>
+            <table class="table table-primary table-bordered ">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>DISCRIPTION</th>
+                        <th>CITY</th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tbody>
+                        <tr>
+                            <td>@item.Id<br/></td>
+                            <td>@item.Name<br /></td>
+                            <td>@item.Description<br /></td>
+                            <td>@item.city<br /></td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
         </div>
     </div>
 </body>
