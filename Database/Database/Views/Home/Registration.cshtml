@@ -1,0 +1,19 @@
+﻿@model Database.Models.Student
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Registration</h2>
+
+<div>
+    @using (Html.BeginForm("Registration", "Home", FormMethod.Post))
+    {
+    @Html.Label("Enter Your Name:")
+    @Html.TextBoxFor(m => m.name, new { @class = "form-control" })
+    @Html.Label("Enter Your city:")
+    @Html.TextBoxFor(m => m.city, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+
+    }
+</div>
