@@ -1,0 +1,43 @@
+﻿@model LoginCode.Models.reg
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<div class="container">
+    <table class="table-bordered" style="margin-left:350px;margin-top:70px;">
+        <thead>
+            <tr>
+                <td style="padding:10px"><h1 style="text-align:center"><b>Login</b> </h1></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding:20px">
+                    @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { id = "registrationForm" }))
+                    {
+                        @Html.Label("Username")
+                        @Html.TextBoxFor(m => m.username, new { @class = "form-control" })
+
+                        <b><h5 style="color:red">@TempData["msg"]</h5></b>
+
+                        @Html.Label("Password")
+                        @Html.TextBoxFor(m => m.password, new { @class = "form-control", type = "password" })
+                        <br />
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    }
+                </td>
+
+            </tr>
+            <tr>
+                <td >
+                    <p style="text-align:center">Don't have an account?  @Html.ActionLink("Sign up", "Index", "Home")</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+

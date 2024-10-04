@@ -1,0 +1,74 @@
+﻿@model LoginCode.Models.reg
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+    <table class="table-bordered" style="margin-left:350px;margin-top:70px;">
+        <thead>
+            <tr>
+                <td style="padding:10px"><h1>Registration Form</h1></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding:20px">
+                    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "registrationForm" }))
+                    {
+                        @Html.Label("Username")
+                        @Html.TextBoxFor(m => m.username, new { @class = "form-control" })
+                        
+                        <b><h5 style="color:red">@TempData["msg"]</h5></b>
+                    
+                        @Html.Label("Password")
+                        @Html.TextBoxFor(m => m.password, new { @class = "form-control", type = "password" })
+           
+
+                        @Html.Label("Confirm Password")
+                        @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", type = "password", id = "confirmPassword" })
+                     
+
+                        @Html.Label("First Name")
+                        @Html.TextBoxFor(m => m.fname, new { @class = "form-control" })
+                       
+
+                        @Html.Label("Last Name")
+                        @Html.TextBoxFor(m => m.lname, new { @class = "form-control" })
+                   
+
+                        @Html.Label("City")
+                        @Html.TextBoxFor(m => m.city, new { @class = "form-control" })
+                      
+
+                        <div class="form-check">
+                            @Html.RadioButton("gender", "male", new { @class = "form-check-input" })
+                            @Html.Label("Male", "Male", new { @class = "form-check-label" })
+                        </div>
+                        <div class="form-check">
+                            @Html.RadioButton("gender", "female", new { @class = "form-check-input" })
+                            @Html.Label("Female", "Female", new { @class = "form-check-label" })
+                        </div>
+                    
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    }
+                
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    document.getElementById("registrationForm").onsubmit = function() {
+        var password = document.getElementsByName("password")[0].value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match.");
+            return false; // Prevent form submission
+        }
+        return true; // Allow form submission
+    };
+</script>
